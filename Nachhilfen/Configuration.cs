@@ -35,7 +35,7 @@ public class Configuration
     private static string[] GetFileLines(string fileName) {
         string path = Path.Combine(Environment.CurrentDirectory, @"135a_csv_Images\csv", fileName);
         Console.WriteLine(path);
-        var lines = System.IO.File.ReadAllLines(path);
+        var lines = File.ReadAllLines(path);
         return lines;
     }
 }

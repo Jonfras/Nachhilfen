@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="clr-namespace:Nachhilfen"
     mc:Ignorable="d"
     Loaded="MainWindow_OnLoaded"
     Title="MainWindow"
@@ -18,29 +17,28 @@
                 Header="File">
                 <MenuItem
                     Header="Save"
-                    Name="miSave"
+                    Name="MiSave"
                     Click="MenuItem_OnClick" />
                 <MenuItem
                     Header="Load"
-                    Name="miLoad"
+                    Name="MiLoad"
                     Click="MenuItem_OnClick" />
             </MenuItem>
         </Menu>
         <ToolBar
             DockPanel.Dock="Top">
-            <ComboBox
-                Name="cboStudent"
-                Width="300"
-                Margin="10,0,10,0">
-            </ComboBox>
-            <CheckBox
-                Name="chk4B"
-                Checked="CheckBox_OnChecked"
-                Unchecked="CheckBox_OnChecked">
-            </CheckBox>
+            <StackPanel
+                Name="SpClasses"
+                Orientation="Horizontal">
+                <ComboBox
+                    Name="CboStudent"
+                    Width="300"
+                    Margin="10,0,10,0">
+                </ComboBox>
+            </StackPanel>
         </ToolBar>
         <Label
-            Name="lblStudentName"
+            Name="LblStudentName"
             Content="Student Name"
             DockPanel.Dock="Top"
             Height="50"
@@ -69,10 +67,9 @@
             <GroupBox
                 Header="Schulstufe"
                 Margin="5">
-                <RadioButton
-                    Name="rbClass1"
-                    Content="1. Klasse"
-                    Margin="2" />
+                <StackPanel
+                    Name="SpLevels"
+                    Margin="10,5,0,0"/>
             </GroupBox>
             <GroupBox
                 Grid.Row="1"
@@ -80,14 +77,14 @@
                 Header="Gegenstand"
                 Margin="5">
                 <RadioButton
-                    Name="rbSubjectMath"
+                    Name="RbSubjectMath"
                     Content="Mathematik"
                     Margin="2" />
             </GroupBox>
             <Button
                 Grid.Row="0"
                 Grid.Column="1"
-                Name="btnAdd"
+                Name="BtnAdd"
                 Height="30"
                 Width="70"
                 Click="BtnAdd_OnClick">
@@ -97,19 +94,19 @@
                 Grid.Column="1"
                 Margin="10">
                 <Label
-                    Name="lblServices"
+                    Name="LblServices"
                     Height="30"
                     Content="x Nachhilfen:">
                 </Label>
                 <ListBox
-                    Name="lstServices"
+                    Name="LstServices"
                     Height="230">
                 </ListBox>
             </StackPanel>
             <Image
                 Grid.Row="0"
                 Grid.Column="2"
-                Name="imgStudent"
+                Name="ImgStudent"
                 Source="C:\Users\jonas\OneDrive\Bilder\Saved Pictures\Maurice2.jpg" />
         </Grid>
     </DockPanel>

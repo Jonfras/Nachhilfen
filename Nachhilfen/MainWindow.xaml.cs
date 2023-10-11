@@ -1,17 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Nachhilfen {
     /// <summary>
@@ -19,7 +10,7 @@ namespace Nachhilfen {
     /// </summary>
     public partial class MainWindow : Window {
         private Configuration _config;
-        
+
         public MainWindow() {
             InitializeComponent();
         }
@@ -27,7 +18,56 @@ namespace Nachhilfen {
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e) {
             _config = new Configuration();
             _config.InitStudents();
+            _config.InitSubjects();
+
+            InitializeUi();
         }
+
+        private void InitializeUi() {
+            var classes = GetAllClassesFromStudentList();
+            CreateCheckBoxes(classes);
+            CreateLevelRadioButtons();
+        }
+
+        private void CreateLevelRadioButtons() {
+            foreach (var level in _config.Levels) {
+                var rb = new RadioButton {
+                    Name = $"rb{level}",
+                    Content = level,
+                };
+                
+                SpLevels.Children.Add(rb);
+            }
+        }
+        
+
+        private void CreateCheckBoxes(List<string> classes) {
+            foreach (var clazz in classes) {
+                var chk = new CheckBox {
+                    Name = $"chk{clazz}",
+                    Content = clazz,
+                };
+                chk.Checked += CheckBox_OnChecked;
+                chk.Unchecked += CheckBox_OnChecked;
+
+                SpClasses.Children.Add(chk);
+            }
+        }
+
+        private List<string> GetAllClassesFromStudentList() {
+            List<string> classes = new();
+            foreach (var student in _config.Students) {
+                if (classes.Contains(student.Clazz)) {
+                    continue;
+                }
+
+                classes.Add(student.Clazz);
+            }
+
+            classes.Sort();
+            return classes;
+        }
+
 
         private void MenuItem_OnClick(object sender, RoutedEventArgs e) {
             throw new NotImplementedException();
