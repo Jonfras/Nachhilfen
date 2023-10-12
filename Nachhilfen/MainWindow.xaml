@@ -7,8 +7,8 @@
     mc:Ignorable="d"
     Loaded="MainWindow_OnLoaded"
     Title="MainWindow"
-    Height="600"
-    Width="800">
+    Height="630"
+    Width="900">
     <DockPanel
         LastChildFill="False">
         <Menu
@@ -17,11 +17,9 @@
                 Header="File">
                 <MenuItem
                     Header="Save"
-                    Name="MiSave"
                     Click="MenuItem_OnClick" />
                 <MenuItem
-                    Header="Load"
-                    Name="MiLoad"
+                    Header="Open"
                     Click="MenuItem_OnClick" />
             </MenuItem>
         </Menu>
@@ -33,7 +31,8 @@
                 <ComboBox
                     Name="CboStudent"
                     Width="300"
-                    Margin="10,0,10,0">
+                    Margin="10,0,10,0"
+                    SelectionChanged="CboStudent_OnSelectionChanged">
                 </ComboBox>
             </StackPanel>
         </ToolBar>
@@ -69,25 +68,24 @@
                 Margin="5">
                 <StackPanel
                     Name="SpLevels"
-                    Margin="10,5,0,0"/>
+                    Margin="10,5,0,0" />
             </GroupBox>
             <GroupBox
                 Grid.Row="1"
                 Grid.Column="0"
                 Header="Gegenstand"
                 Margin="5">
-                <RadioButton
-                    Name="RbSubjectMath"
-                    Content="Mathematik"
-                    Margin="2" />
+                <StackPanel
+                    Name="SpSubjects">
+                </StackPanel>
             </GroupBox>
             <Button
                 Grid.Row="0"
                 Grid.Column="1"
-                Name="BtnAdd"
                 Height="30"
                 Width="70"
-                Click="BtnAdd_OnClick">
+                Click="BtnAdd_OnClick"
+                Content="Add">
             </Button>
             <StackPanel
                 Grid.Row="1"
@@ -95,12 +93,11 @@
                 Margin="10">
                 <Label
                     Name="LblServices"
-                    Height="30"
-                    Content="x Nachhilfen:">
+                    Height="30">
                 </Label>
                 <ListBox
                     Name="LstServices"
-                    Height="230">
+                    Height="220">
                 </ListBox>
             </StackPanel>
             <Image

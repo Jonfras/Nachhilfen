@@ -12,10 +12,10 @@
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
       <None Update="135a_csv_Images\csv\students.csv">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
       <None Update="135a_csv_Images\csv\tutorings.csv">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
       <None Update="135a_csv_Images\Images\Aggs_Casey.jpg">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
